@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import couplesData from "@/content/couples.json";
 
@@ -26,6 +25,7 @@ const Couples = () => {
 
   return (
     <div className="min-h-screen bg-couples-bg relative overflow-hidden">
+      {/* Hover preview image */}
       <AnimatePresence>
         {hoveredCouple && (
           <motion.div
@@ -41,7 +41,7 @@ const Couples = () => {
             }}
           >
             <img
-              src={imageMap[hoveredCouple.images[0]]}
+              src={imageMap[hoveredCouple.image]}
               alt={hoveredCouple.names}
               className="w-full h-full object-cover"
               loading="lazy"
@@ -63,14 +63,13 @@ const Couples = () => {
                 {i > 0 && (
                   <span className="text-foreground/40 font-body text-sm">/</span>
                 )}
-                <Link
-                  to={`/couples/${couple.id}`}
+                <button
                   onMouseEnter={() => setHoveredId(couple.id)}
                   onMouseLeave={() => setHoveredId(null)}
                   className="font-body text-lg md:text-2xl uppercase tracking-[0.15em] text-foreground hover:text-foreground/60 transition-colors cursor-pointer py-2"
                 >
                   {couple.names}
-                </Link>
+                </button>
               </div>
             ))}
           </div>

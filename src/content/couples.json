@@ -4,59 +4,34 @@
     "names": "Ana & Pedro",
     "date": "Summer 2024",
     "location": "Algarve",
-    "description": "Ana and Pedro's love story began in the sun-kissed cliffs of the Algarve. Their wedding was a celebration of warmth, ocean breezes, and the kind of joy that makes everyone around them smile. From the golden hour portraits on the clifftops to the barefoot dancing by the sea, every moment was a testament to their free-spirited love.",
-    "images": [
-      "/couples/couple-1.jpg",
-      "/couples/ana-pedro-2.jpg",
-      "/couples/ana-pedro-3.jpg"
-    ]
+    "image": "/couples/couple-1.jpg"
   },
   {
     "id": "sofia-miguel",
     "names": "Sofia & Miguel",
     "date": "Autumn 2024",
     "location": "Douro Valley",
-    "description": "Surrounded by the terraced vineyards of the Douro Valley in full autumn splendor, Sofia and Miguel chose to celebrate their union where Portugal's soul runs deepest. Their intimate ceremony beneath golden vines gave way to a candlelit dinner overlooking the river — a day as rich and layered as the wine that flows through those hills.",
-    "images": [
-      "/couples/couple-2.jpg",
-      "/couples/sofia-miguel-2.jpg",
-      "/couples/sofia-miguel-3.jpg"
-    ]
+    "image": "/couples/couple-2.jpg"
   },
   {
     "id": "ines-tomas",
     "names": "Inês & Tomás",
     "date": "Spring 2024",
     "location": "Sintra",
-    "description": "In the misty gardens of Sintra, where fairy tales feel possible, Inês and Tomás said their vows. The morning fog lifted to reveal a day of laughter, tender glances, and the kind of romance that belongs in old novels. Their love for each other was matched only by their love for the magical place they chose to begin forever.",
-    "images": [
-      "/couples/couple-3.jpg",
-      "/couples/ines-tomas-2.jpg",
-      "/couples/ines-tomas-3.jpg"
-    ]
+    "image": "/couples/couple-3.jpg"
   },
   {
     "id": "marta-joao",
     "names": "Marta & João",
     "date": "Summer 2023",
     "location": "Lisbon",
-    "description": "Marta and João's wedding was a love letter to Lisbon — the city where they met, fell in love, and built their life together. From narrow cobblestone streets to panoramic miradouros, every corner of this vibrant city served as a backdrop for their celebration. Their day was full of colour, music, and the unmistakable warmth of a couple deeply in love.",
-    "images": [
-      "/couples/couple-4.jpg",
-      "/couples/marta-joao-2.jpg",
-      "/couples/marta-joao-3.jpg"
-    ]
+    "image": "/couples/couple-4.jpg"
   },
   {
     "id": "carolina-diogo",
     "names": "Carolina & Diogo",
     "date": "Winter 2023",
     "location": "Alentejo",
-    "description": "Under the vast Alentejo sky, Carolina and Diogo gathered their closest people for a weekend of celebration at a restored farmhouse. The golden wheat fields and the slow rhythm of the countryside set the tone for a wedding that felt unhurried and deeply personal. Every detail reflected their love for simplicity, nature, and each other.",
-    "images": [
-      "/couples/couple-5.jpg",
-      "/couples/carolina-diogo-2.jpg",
-      "/couples/carolina-diogo-3.jpg"
-    ]
+    "image": "/couples/couple-5.jpg"
   }
 ]

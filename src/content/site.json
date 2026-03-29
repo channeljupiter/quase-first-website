@@ -1,0 +1,10 @@
+{
+  "name": "Quase",
+  "tagline": "Wedding Photography",
+  "topBanner": "Quase is taking its first steps and so is this website. For now, this is just a welcoming page where you can learn a bit more about the work.",
+  "navigation": [
+    { "label": "Couples", "path": "/couples" },
+    { "label": "Manifesto", "path": "/manifesto" },
+    { "label": "About", "path": "/about" }
+  ]
+}

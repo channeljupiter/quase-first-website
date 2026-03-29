@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ana-pedro",
+    "names": "Ana & Pedro",
+    "date": "Summer 2024",
+    "location": "Algarve",
+    "image": "/couples/couple-1.jpg"
+  },
+  {
+    "id": "sofia-miguel",
+    "names": "Sofia & Miguel",
+    "date": "Autumn 2024",
+    "location": "Douro Valley",
+    "image": "/couples/couple-2.jpg"
+  },
+  {
+    "id": "ines-tomas",
+    "names": "Inês & Tomás",
+    "date": "Spring 2024",
+    "location": "Sintra",
+    "image": "/couples/couple-3.jpg"
+  },
+  {
+    "id": "marta-joao",
+    "names": "Marta & João",
+    "date": "Summer 2023",
+    "location": "Lisbon",
+    "image": "/couples/couple-4.jpg"
+  },
+  {
+    "id": "carolina-diogo",
+    "names": "Carolina & Diogo",
+    "date": "Winter 2023",
+    "location": "Alentejo",
+    "image": "/couples/couple-5.jpg"
+  }
+]

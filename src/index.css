@@ -1,54 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Google fonts removed since we're using Georgia now */
+
 @layer base {
   :root {
-    --background: 40 23% 94%;
-    --foreground: 30 5% 12%;
+    --background: #e4decc;
+    --foreground: #1a1a1a;
 
-    --card: 40 20% 96%;
-    --card-foreground: 30 5% 12%;
+    --card: #e4decc;
+    --card-foreground: #1a1a1a;
 
-    --popover: 40 23% 94%;
-    --popover-foreground: 30 5% 12%;
+    --popover: #e4decc;
+    --popover-foreground: #1a1a1a;
 
-    --primary: 30 5% 12%;
-    --primary-foreground: 40 23% 94%;
+    --primary: #1a1a1a;
+    --primary-foreground: #e4decc;
 
-    --secondary: 38 40% 78%;
-    --secondary-foreground: 30 5% 12%;
+    --secondary: #d6cfb8;
+    --secondary-foreground: #1a1a1a;
 
-    --muted: 40 15% 88%;
-    --muted-foreground: 30 5% 45%;
+    --muted: #ddd6c2;
+    --muted-foreground: #444;
 
-    --accent: 38 40% 78%;
-    --accent-foreground: 30 5% 12%;
+    --accent: #d6cfb8;
+    --accent-foreground: #1a1a1a;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 35 15% 82%;
-    --input: 35 15% 82%;
-    --ring: 30 5% 12%;
+    --border: #cfc6ad;
+    --input: #cfc6ad;
+    --ring: #1a1a1a;
 
     --radius: 0rem;
-
-    --couples-bg: 36 65% 72%;
-
-    --font-display: 'Instrument Serif', serif;
-    --font-body: 'DM Sans', sans-serif;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -57,11 +40,15 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-body antialiased;
-  }
+body {
+  background-color: #fbf9f4;
+  color: #1a1a1a;
+  font-family: Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+  img {
+    display: block;
   }
 }

@@ -1,15 +1,19 @@
 [
   {
+    "question": "Who is QUASE?",
+    "answer": "QUASE is a one-person project. My name is Gonçalo and I'm a professional photographer with almost 10 years of experience in different fields. It serves as a way to distinguish and organize the various areas of interest within my work."
+  },
+  {
     "question": "How would you describe your photography style?",
-    "answer": "Our style is a blend of documentary and editorial photography. We focus on capturing genuine, unscripted moments while maintaining a warm, film-inspired aesthetic. Think of it as storytelling through light — honest, intimate, and timeless."
+    "answer": "My style is a blend of documentary and editorial photography. I focus on capturing genuine, unscripted moments while maintaining a warm, film-inspired aesthetic. Think of it as storytelling through light — honest, intimate, and timeless."
   },
   {
     "question": "How many hours of coverage do you offer?",
-    "answer": "Our packages typically range from 6 to 12 hours of coverage. We recommend enough time to capture everything from getting ready through the first dances. We'll help you figure out the ideal timeline during our initial conversation."
+    "answer": "Packages typically range from 6 to 12 hours of coverage. We recommend enough time to capture everything from getting ready through the first dances. We'll help you figure out the ideal timeline during our initial conversation."
   },
   {
-    "question": "Do you travel for weddings?",
-    "answer": "Absolutely. We're based in Portugal but we love to travel. Whether your wedding is in a vineyard in the Douro Valley, a beach in the Algarve, or a countryside estate in Tuscany, we're happy to be there."
+    "question": "Where are you based and do you travel for weddings?",
+    "answer": "We are based in Portugal and absolutely available for destination weddings. We regularly travel across Europe and beyond, and we’re always open to new locations."
   },
   {
     "question": "How long until we receive our photos?",
@@ -30,5 +34,30 @@
   {
     "question": "What happens if it rains on our wedding day?",
     "answer": "Rain creates some of the most beautiful, dramatic, and intimate photographs. We always come prepared with creative solutions, and some of our favourite images have been captured under moody skies. Trust us — it can be a gift."
+  },
+
+  {
+    "question": "What is your payment schedule?",
+    "answer": "Typically, a deposit is required to secure your date, with the remaining balance due closer to the wedding. The exact structure can be adjusted depending on the booking."
+  },
+  {
+    "question": "How much do you charge?",
+    "answer": "Pricing depends on coverage time, location, and the specifics of your wedding. We provide tailored quotes after learning more about your plans."
+  },
+  {
+    "question": "Do you do video?",
+    "answer": "We currently focus on photography, but we often collaborate with trusted videographers and can help you include video coverage in your wedding team."
+  },
+  {
+    "question": "What is your approach?",
+    "answer": "Our approach blends documentary storytelling with an editorial eye. We focus on real, unscripted moments while gently guiding when needed to create intentional, timeless imagery."
+  },
+  {
+    "question": "Do you work with a second photographer?",
+    "answer": "Yes, depending on the size and structure of the wedding. For larger weddings, a second photographer is often included to ensure full coverage of both partners and all key moments."
+  },
+  {
+    "question": "How do we book you?",
+    "answer": "Once we confirm availability, we send a contract and deposit details. The date is secured once both are completed."
   }
 ]

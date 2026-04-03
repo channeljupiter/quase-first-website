@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import FooterNav from "./FooterNav";
+import quase from "@/assets/quase.png";
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -8,15 +9,24 @@ interface PageLayoutProps {
 
 const PageLayout = ({ children, className = "" }: PageLayoutProps) => {
   return (
-    <div className={`min-h-screen bg-background ${className}`}>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-6 bg-background/80 backdrop-blur-sm">
-        <Link to="/" className="font-display text-2xl tracking-wide text-foreground">
-          Quase
+    <div className={`h-screen overflow-hidden bg-background ${className}`}>
+      
+      {/* OPAQUE HEADER */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-6 bg-background">
+        <Link to="/" className="block">
+          <img
+            src={quase}
+            alt="Quase"
+            className="h-11 md:h-16 opacity-90 hover:opacity-100 transition-opacity"
+          />
         </Link>
       </header>
-      <main className="pt-20 pb-24">
+
+      {/* MAIN — NO PAGE SCROLL */}
+      <main className="pt-20 pb-24 h-full overflow-hidden">
         {children}
       </main>
+
       <FooterNav />
     </div>
   );

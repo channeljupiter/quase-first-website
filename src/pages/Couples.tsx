@@ -25,7 +25,7 @@ const Couples = () => {
 
   return (
     <div className="min-h-screen bg-couples-bg relative overflow-hidden">
-      {/* Hover preview image */}
+      {/* Hover preview image (kept for later use) */}
       <AnimatePresence>
         {hoveredCouple && (
           <motion.div
@@ -57,6 +57,8 @@ const Couples = () => {
           className="flex flex-col items-center justify-center min-h-[70vh] px-8"
           onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
         >
+
+          {/* ❌ Couples list (commented out)
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 max-w-4xl">
             {couplesData.map((couple, i) => (
               <div key={couple.id} className="flex items-center gap-4">
@@ -73,6 +75,18 @@ const Couples = () => {
               </div>
             ))}
           </div>
+          */}
+
+          {/* ✅ SOON placeholder */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="font-body text-2xl md:text-4xl tracking-[0.3em] uppercase text-foreground/70"
+          >
+            SOON
+          </motion.div>
+
         </div>
       </PageLayout>
     </div>

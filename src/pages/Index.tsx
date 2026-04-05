@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import quase from "@/assets/quase.png";
-import P1034952 from "@/assets/couples/Daniela_Gui/P1034952.jpg";
 import P1034977 from "@/assets/couples/Daniela_Gui/P1034977.jpg";
 import P1035097 from "@/assets/couples/Daniela_Gui/P1035097.jpg";
 import P1035353 from "@/assets/couples/Daniela_Gui/P1035353.jpg";
@@ -13,43 +12,80 @@ import img23 from "@/assets/img23.jpg";
 
 import siteData from "@/content/site.json";
 
+/* =========================================================
+   RESPONSIVE IMAGE SYSTEM (FIX OVERLAP ISSUE)
+========================================================= */
+
 const images = [
-  { src: P1034977, desktop: "top-[10%] left-[8%]", mobile: "top-[15%] left-[5%]" },
-  { src: P1035097, desktop: "top-[20%] right-[10%]", mobile: "top-[10%] right-[5%]" },
-  { src: P1035353, desktop: "top-[55%] left-[12%]", mobile: "top-[65%] left-[5%]" },
-  { src: P1034998, desktop: "top-[65%] right-[12%]", mobile: "top-[60%] right-[5%]" },
-  { src: P1034997, desktop: "top-[35%] left-[30%]", mobile: "top-[40%] left-[10%]" },
-  { src: img23, desktop: "top-[40%] right-[25%]", mobile: "top-[35%] right-[10%]" },
+  {
+    src: P1034977,
+    desktop: { x: -25, y: -20, size: 1.0 },
+    mobile: { x: -15, y: -25, size: 1.0 },
+  },
+  {
+    src: P1035097,
+    desktop: { x: 25, y: -25, size: 1.2 },
+    mobile: { x: 18, y: -30, size: 1.2 },
+  },
+  {
+    src: P1035353,
+    desktop: { x: -30, y: 30, size: 0.9 },
+    mobile: { x: -18, y: 25, size: 0.0 },
+  },
+  {
+    src: P1034998,
+    desktop: { x: 30, y: 35, size: 1.1 },
+    mobile: { x: 20, y: 28, size: 1.1 },
+  },
+  {
+    src: P1034997,
+    desktop: { x: -35, y: 0, size: 0.85 },
+    mobile: { x: -22, y: 30, size: 0.85 },
+  },
+  {
+    src: img23,
+    desktop: { x: 35, y: 10, size: 1.3 },
+    mobile: { x: 22, y: -13, size: 0.7 },
+  },
 ];
 
 const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
   }, []);
 
+  // detect mobile once
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
     <div className="relative h-screen w-screen bg-white overflow-hidden">
 
-      {/* ===== MENU BUTTON ===== */}
+      {/* ================= MENU BUTTON ================= */}
       <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        className="absolute top-6 right-6 z-50 flex flex-col gap-1"
+        onClick={() => setMenuOpen((prev) => !prev)}
+        className="absolute top-6 right-6 z-[200] flex flex-col gap-1"
       >
         <span className="w-6 h-[1px] bg-black" />
         <span className="w-6 h-[1px] bg-black" />
         <span className="w-6 h-[1px] bg-black" />
       </button>
 
-      {/* ===== MENU OVERLAY ===== */}
+      {/* ================= MENU OVERLAY ================= */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-white"
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-10 bg-white"
           >
             {siteData.navigation.map((item) => (
               <Link
@@ -65,49 +101,47 @@ const Index = () => {
         )}
       </AnimatePresence>
 
-      {/* ===== IMAGES ===== */}
-      {images.map((img, i) => (
-        <motion.img
-          key={i}
-          src={img.src}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: i * 0.2 }}
-          className={`
-            absolute 
-            w-[28vw] md:w-[18vw]
-            object-cover
+      {/* ================= IMAGES ================= */}
+{!menuOpen &&
+  images.map((img, i) => {
+    const layout = isMobile ? img.mobile : img.desktop;
 
-            ${img.mobile}
-            md:${img.desktop}
-          `}
-        />
-      ))}
+    return (
+      <motion.img
+        key={i}
+        src={img.src}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: i * 0.15 }}
+        className="absolute object-cover z-10"
+        style={{
+          top: "50%",
+          left: "50%",
+          transform: `
+            translate(-50%, -50%)
+            translate(${layout.x}vw, ${layout.y}vh)
+            scale(${layout.size})
+          `,
+          width: isMobile ? "28vw" : "14vw",   // 🔥 FIX HERE
+          maxWidth: "320px",                   // safety cap
+        }}
+      />
+    );
+  })}
 
-      {/* ===== LOGO ===== */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="
-          absolute 
-          left-1/2 -translate-x-1/2 
-          
-          bottom-[8vh] md:bottom-[5vh]
-          md:left-1/2 md:-translate-x-1/2
-
-          md:w-[40vw]
-          w-[70vw]
-        "
-      >
-        <img src={quase} className="w-full h-auto" />
-      </motion.div>
-
-      {/* ===== MOBILE CENTER OVERRIDE ===== */}
-      <div className="md:hidden absolute inset-0 flex items-center justify-center pointer-events-none">
-        <img src={quase} className="w-[70vw]" />
-      </div>
-
+      {/* ================= CENTER LOGO ================= */}
+      {!menuOpen && (
+        <div className="flex items-center justify-center w-screen h-screen">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="relative z-50 w-[70vw] md:w-[40vw]"
+          >
+            <img src={quase} alt="quase" className="w-full h-auto" />
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };

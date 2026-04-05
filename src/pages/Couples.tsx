@@ -3,18 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
 import couplesData from "@/content/couples.json";
 
-import couple1 from "@/assets/couples/couple-1.jpg";
-import couple2 from "@/assets/couples/couple-2.jpg";
-import couple3 from "@/assets/couples/couple-3.jpg";
-import couple4 from "@/assets/couples/couple-4.jpg";
-import couple5 from "@/assets/couples/couple-5.jpg";
 
 const imageMap: Record<string, string> = {
-  "/couples/couple-1.jpg": couple1,
-  "/couples/couple-2.jpg": couple2,
-  "/couples/couple-3.jpg": couple3,
-  "/couples/couple-4.jpg": couple4,
-  "/couples/couple-5.jpg": couple5,
+
 };
 
 const Couples = () => {

@@ -93,7 +93,7 @@ const About = () => {
 
           {/* RIGHT SIDE */}
           <div className="md:w-2/3 pr-2 md:pr-6 flex flex-col h-full">
-            <div className="flex-1 overflow-y-auto pr-2 pb-[120px]">
+            <div className="flex-1 overflow-y-auto pr-2">
               <div className="flex flex-col md:flex-row gap-x-12 gap-y-8">
                 {/* LEFT COLUMN */}
                 <div className="flex-1 space-y-8">

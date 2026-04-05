@@ -1,33 +1,55 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import FooterNav from "./FooterNav";
+import { motion, AnimatePresence } from "framer-motion";
 import quase from "@/assets/quase.png";
+import siteData from "@/content/site.json";
 
-interface PageLayoutProps {
-  children: React.ReactNode;
-  className?: string;
-}
+const PageLayout = ({ children }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-const PageLayout = ({ children, className = "" }: PageLayoutProps) => {
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+  }, [menuOpen]);
+
   return (
-    <div className={`h-screen overflow-hidden bg-background ${className}`}>
-      
-      {/* OPAQUE HEADER */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-6 bg-background">
-        <Link to="/" className="block">
-          <img
-            src={quase}
-            alt="Quase"
-            className="h-11 md:h-16 opacity-90 hover:opacity-100 transition-opacity"
-          />
+    <div className="min-h-screen bg-white text-black">
+
+      {/* HEADER */}
+      <div className="flex justify-between items-center px-6 py-4">
+        <Link to="/">
+          <img src={quase} className="h-10" />
         </Link>
-      </header>
 
-      {/* MAIN — NO PAGE SCROLL */}
-      <main className="pt-20 pb-24 h-full overflow-hidden">
-        {children}
-      </main>
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="flex flex-col gap-1"
+        >
+          <span className="w-6 h-[1px] bg-black" />
+          <span className="w-6 h-[1px] bg-black" />
+          <span className="w-6 h-[1px] bg-black" />
+        </button>
+      </div>
 
-      <FooterNav />
+      {/* MENU */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-10 bg-white">
+            {siteData.navigation.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setMenuOpen(false)}
+                className="text-xl uppercase tracking-[0.3em]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* CONTENT */}
+      <main>{children}</main>
     </div>
   );
 };

@@ -1,111 +1,113 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+
+import quase from "@/assets/quase.png";
 import P1034952 from "@/assets/couples/Daniela_Gui/P1034952.jpg";
 import P1034977 from "@/assets/couples/Daniela_Gui/P1034977.jpg";
 import P1035097 from "@/assets/couples/Daniela_Gui/P1035097.jpg";
 import P1035353 from "@/assets/couples/Daniela_Gui/P1035353.jpg";
 import P1034998 from "@/assets/couples/Daniela_Gui/P1034998.jpg";
-import img16 from "@/assets/img16.jpg";
+import P1034997 from "@/assets/couples/Daniela_Gui/P1034997.jpg";
 import img23 from "@/assets/img23.jpg";
-import TopBanner from "@/components/TopBanner";
-import FooterNav from "@/components/FooterNav";
-import quase from "@/assets/quase.png";
+
+import siteData from "@/content/site.json";
+
+const images = [
+  { src: P1034977, desktop: "top-[10%] left-[8%]", mobile: "top-[15%] left-[5%]" },
+  { src: P1035097, desktop: "top-[20%] right-[10%]", mobile: "top-[10%] right-[5%]" },
+  { src: P1035353, desktop: "top-[55%] left-[12%]", mobile: "top-[65%] left-[5%]" },
+  { src: P1034998, desktop: "top-[65%] right-[12%]", mobile: "top-[60%] right-[5%]" },
+  { src: P1034997, desktop: "top-[35%] left-[30%]", mobile: "top-[40%] left-[10%]" },
+  { src: img23, desktop: "top-[40%] right-[25%]", mobile: "top-[35%] right-[10%]" },
+];
 
 const Index = () => {
-  return (
-    <div className="relative bg-background overflow-x-hidden">
-      <TopBanner />
+  const [menuOpen, setMenuOpen] = useState(false);
 
-      {/* Fixed FOREGROUND title */}
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  }, []);
+
+  return (
+    <div className="relative h-screen w-screen bg-white overflow-hidden">
+
+      {/* ===== MENU BUTTON ===== */}
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className="absolute top-6 right-6 z-50 flex flex-col gap-1"
+      >
+        <span className="w-6 h-[1px] bg-black" />
+        <span className="w-6 h-[1px] bg-black" />
+        <span className="w-6 h-[1px] bg-black" />
+      </button>
+
+      {/* ===== MENU OVERLAY ===== */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-white"
+          >
+            {siteData.navigation.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setMenuOpen(false)}
+                className="text-xl uppercase tracking-[0.3em]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ===== IMAGES ===== */}
+      {images.map((img, i) => (
+        <motion.img
+          key={i}
+          src={img.src}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: i * 0.2 }}
+          className={`
+            absolute 
+            w-[28vw] md:w-[18vw]
+            object-cover
+
+            ${img.mobile}
+            md:${img.desktop}
+          `}
+        />
+      ))}
+
+      {/* ===== LOGO ===== */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-        className="fixed bottom-[5vh] left-0 right-0 flex justify-center z-50 pointer-events-none"
+        transition={{ duration: 1, delay: 0.5 }}
+        className="
+          absolute 
+          left-1/2 -translate-x-1/2 
+          
+          bottom-[8vh] md:bottom-[5vh]
+          md:left-1/2 md:-translate-x-1/2
+
+          md:w-[40vw]
+          w-[70vw]
+        "
       >
-        <img
-          src={quase}
-          alt="Quase"
-          className="w-[60vw] max-w-[600px] h-auto"
-        />
+        <img src={quase} className="w-full h-auto" />
       </motion.div>
 
-      {/* HERO */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="relative w-full aspect-[2/3] md:absolute md:top-16 md:left-0 md:w-[35vw]"
-      >
-        <img
-          src={img16}
-          alt="Wedding photography"
-          className="w-full h-full object-cover"
-        />
-      </motion.div>
-
-      {/* Top-right image */}
-      <motion.div
-        initial={{ opacity: 0, y: -20, rotate: 2 }}
-        animate={{ opacity: 1, y: 0, rotate: 2 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-        className="relative mt-4 w-[85%] mx-auto
-                   md:absolute md:top-12 md:right-8 md:w-[35vw]"
-      >
-        <img
-          src={P1034977}
-          alt="Couple portrait"
-          className="w-full h-auto object-contain"
-        />
-      </motion.div>
-
-      {/* SCROLL SECTION */}
-      <div className="relative mt-10 md:pt-[110vh]">
-        <div className="relative md:h-[220vh]">
-
-          {/* Image 1 (commented out) */}
-          {/*
-          <div className="absolute top-[0%] left-[10%] w-[28vw] max-w-[420px]">
-            <img src={P1034952} className="w-full object-cover" />
-          </div>
-          */}
-
-          {/* Image 2 */}
-          <div className="relative w-[90%] mx-auto mb-8
-                          md:absolute md:top-[2%] md:right-[12%] md:w-[28vw]">
-            <img src={img23} className="w-full object-cover" />
-          </div>
-
-          {/* Image 3 */}
-          <div className="relative w-[120%] mx-auto mb-8
-                          md:absolute md:top-[15%] md:left-[10%] md:w-[32vw]">
-            <img src={P1034998} className="w-full object-cover" />
-          </div>
-
-          {/* Image 4 */}
-          <div className="relative w-[90%] mx-auto mb-8
-                          md:absolute md:top-[50%] md:right-[18%] md:w-[26vw]">
-            <img src={P1035097} className="w-full h-auto object-contain" />
-          </div>
-
-          {/* Image 5 */}
-          <div className="relative w-[90%] mx-auto mb-8
-                          md:absolute md:top-[70%] md:left-[8%] md:w-[30vw]">
-            <img src={P1034952} className="w-full object-cover" />
-          </div>
-
-          {/* Image 6 */}
-          <div className="relative w-[100%] mx-auto mb-18
-                          md:absolute md:top-[85%] md:right-[10%] md:w-[29vw]">
-            <img src={P1035353} className="w-full h-auto object-contain" />
-          </div>
-
-        </div>
-
-        {/* breathing space */}
-        <div className="h-[20vh] md:h-[40vh]" />
+      {/* ===== MOBILE CENTER OVERRIDE ===== */}
+      <div className="md:hidden absolute inset-0 flex items-center justify-center pointer-events-none">
+        <img src={quase} className="w-[70vw]" />
       </div>
 
-      <FooterNav />
     </div>
   );
 };

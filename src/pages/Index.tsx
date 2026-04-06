@@ -19,8 +19,8 @@ import siteData from "@/content/site.json";
 const images = [
   {
     src: P1034977,
-    desktop: { x: -25, y: -20, size: 1.0 },
-    mobile: { x: -15, y: -25, size: 1.0 },
+    desktop: { x: -25, y: -30, size: 1.2 },
+    mobile: { x: -25, y: -25, size: 1.3 },
   },
   {
     src: P1035097,
@@ -29,23 +29,23 @@ const images = [
   },
   {
     src: P1035353,
-    desktop: { x: -30, y: 30, size: 0.9 },
-    mobile: { x: -18, y: 25, size: 0.0 },
+    desktop: { x: -30, y: 30, size: 1.1 },
+    mobile: { x: -18, y: 16, size: 1.5 },
   },
   {
     src: P1034998,
-    desktop: { x: 30, y: 35, size: 1.1 },
-    mobile: { x: 20, y: 28, size: 1.1 },
+    desktop: { x: 5, y: 35, size: 1.1 },
+    mobile: { x: 25, y: 18, size: 1.1 },
   },
   {
     src: P1034997,
     desktop: { x: -35, y: 0, size: 0.85 },
-    mobile: { x: -22, y: 30, size: 0.85 },
+    mobile: { x: -2, y: 35, size: 0.95 },
   },
   {
     src: img23,
-    desktop: { x: 35, y: 10, size: 1.3 },
-    mobile: { x: 22, y: -13, size: 0.7 },
+    desktop: { x: 35, y: 10, size: 1.0 },
+    mobile: { x: 22, y: -13, size: 0.9 },
   },
 ];
 
@@ -59,7 +59,7 @@ const Index = () => {
 
   // detect mobile once
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
+    const check = () => setIsMobile(window.innerWidth < 400);
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
